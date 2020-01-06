@@ -1,0 +1,115 @@
+# depslib dependency file v1.0
+1578346479 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\cachorros\cachorros\cachorros.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"Cachorros.h"
+	"LinkedList.h"
+	"Lisba_libreria.h"
+
+1576553835 c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\cachorros\cachorros\cachorros.h
+	"LinkedList.h"
+
+1578346479 c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\cachorros\cachorros\linkedlist.h
+
+1575163694 c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\cachorros\cachorros\lisba_utn.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1576811061 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\cachorros\cachorros\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Cachorros.h"
+	"parser.h"
+	"conio.h"
+
+1575163694 c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\cachorros\cachorros\parser.h
+
+1578346479 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\cachorros\cachorros\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1575163694 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\cachorros\cachorros\lisba_utn.c
+	"lisba_utn.h"
+
+1576812716 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\cachorros\cachorros\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Cachorros.h"
+	"Controller.h"
+	"lisba_utn.h"
+	"LinkedList.h"
+
+1575163694 c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\cachorros\cachorros\controller.h
+
+1575163694 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\cachorros\cachorros\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Cachorros.h"
+
+1578345956 c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\cachorros\cachorros\lisba_libreria.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1578345956 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\cachorros\cachorros\lisba_libreria.c
+	"Lisba_libreria.h"
+
+1578346479 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\cachorros.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"Cachorros.h"
+	"LinkedList.h"
+	"Lisba_libreria.h"
+
+1576553835 c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\cachorros.h
+	"LinkedList.h"
+
+1578346479 c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\linkedlist.h
+
+1578345956 c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\lisba_libreria.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1576811061 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Cachorros.h"
+	"parser.h"
+	"conio.h"
+
+1575163694 c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\parser.h
+
+1578346479 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1578345956 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\lisba_libreria.c
+	"Lisba_libreria.h"
+
+1576812716 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Cachorros.h"
+	"Controller.h"
+	"lisba_utn.h"
+	"LinkedList.h"
+
+1575163694 c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\controller.h
+
+1575163694 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Cachorros.h"
+
