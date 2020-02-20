@@ -12,13 +12,15 @@ int menu(void)
     system("cls");
     printf("****** ABM CACHORROS *******\n\n");
     printf("1-CARGAR ARCHIVO.\n");
-    printf("2-IMPRIMIR LISTA.\n");
-    printf("3-FILTRAR MENORES DE 45 DIAS.\n");
-    printf("4-FILTRAR MACHOS.\n");
-    printf("5-GENERAR LISTADO DE CALLEJEROS.\n");
-    printf("6-ORDENAR LISTA.\n");
-    printf("7-SALIR.\n\n");
-    getInt(&opcion, "INGRESE OPCION: ", "OPCION INVALIDA. ", 1, 7);
+    printf("2-ALTA CACHORRO.\n");
+    printf("3-IMPRIMIR LISTA.\n");
+    printf("4-FILTRAR MENORES DE 45 DIAS.\n");
+    printf("5-FILTRAR MACHOS.\n");
+    printf("6-GENERAR LISTADO DE CALLEJEROS.\n");
+    printf("7-ORDENAR LISTA.\n");
+    printf("8-GUARDAR ARCHIVO.\n");
+    printf("9-SALIR.\n\n");
+    getInt(&opcion, "INGRESE OPCION: ", "OPCION INVALIDA. ", 1, 9);
 
     return opcion;
 }

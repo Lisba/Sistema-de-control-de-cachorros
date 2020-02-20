@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "Cachorros.h"
 #include "Controller.h"
-#include "lisba_utn.h"
+#include "Lisba_libreria.h"
 #include "LinkedList.h"
 
 int main()
@@ -45,6 +45,17 @@ int main()
         case 2:
             if( !ll_isEmpty(listaCachorros) )
             {
+                controller_addCachorro(listaCachorros);
+            }
+            else
+            {
+                printf("\nPRIMERO DEBE CARGAR LOS DATOS DESDE EL ARCHIVO!\n\n");
+            }
+            system("pause");
+            break;
+        case 3:
+            if( !ll_isEmpty(listaCachorros) )
+            {
                 controller_ListCachorros(listaCachorros);
             }
             else
@@ -53,7 +64,7 @@ int main()
             }
             system("pause");
             break;
-        case 3:
+        case 4:
             if( !ll_isEmpty(listaCachorros) )
             {
                 listaCachorrosMenores45Dias = ll_filter(listaCachorros, filtrarMenores45);
@@ -77,7 +88,7 @@ int main()
             }
             system("pause");
             break;
-        case 4:
+        case 5:
             if( !ll_isEmpty(listaCachorros) )
             {
                 listaMachos = ll_filter(listaCachorros, filtrarMachos);
@@ -101,7 +112,7 @@ int main()
             }
             system("pause");
             break;
-        case 5:
+        case 6:
             if( !ll_isEmpty(listaCachorros) )
             {
                 ListaCallejeros = ll_filter(listaCachorros, filtrarCallejeros);
@@ -125,7 +136,7 @@ int main()
             }
             system("pause");
             break;
-        case 6:
+        case 7:
             if( !ll_isEmpty(listaCachorros) )
             {
                 getInt(&sortOption, "ASCENDENTE (1) O DESCENDENTE (0)?: ", "ERROR! ", 0, 1);
@@ -146,7 +157,25 @@ int main()
             }
             system("pause");
             break;
-        case 7:
+        case 8:
+            if ( !ll_isEmpty(listaCachorros) )
+                {
+                    if( controller_saveAsText("cachorros1.csv", listaCachorros) )
+                    {
+                        printf("\nDATOS GUARDADOS EN EL ARCHIVO DE TEXTO EXITOSAMENTE!\n\n");
+                    }
+                    else
+                    {
+                        printf("\nNO SE PUDO GUARDAR LOS DATOS!\n\n");
+                    }
+                }
+                else
+                {
+                    printf("\nNO HAY DATOS CARGADOS!\n\n");
+                }
+                system("pause");
+            break;
+        case 9:
             getChar(&respuesta, "\nSEGURO QUE DESEA SALIR? (s/n): ", "\nOPCION INVALIDA! \n", 'n', 's');
             break;
         default:

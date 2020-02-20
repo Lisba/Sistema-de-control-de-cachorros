@@ -4,6 +4,7 @@
 #include "Cachorros.h"
 #include "parser.h"
 #include "conio.h"
+#include "Lisba_libreria.h"
 
 int controller_loadFromText(char* path , LinkedList* pArrayListCachorro)
 {
@@ -28,6 +29,100 @@ int controller_loadFromText(char* path , LinkedList* pArrayListCachorro)
             printf("\nEL ARCHIVO NO EXISTE!\n");
         }
     }
+
+    return able;
+}
+
+int controller_addCachorro(LinkedList* pArrayListCachorro)
+{
+    int able = 0;
+    char nombre[20];
+    int dias;
+    char raza[20];
+    char reservado[3];
+    char genero[2];
+    eCachorro* cachorro;
+    int respuesta;
+    int indice;
+
+    cachorro = cachorro_new();
+
+    if(cachorro != NULL)
+    {
+        able = 1;
+    }
+    system("cls");
+    printf("\nDESEA AGREAR UN NUEVO CACHORRO AL FINAL DE LA LISTA O DENTRO DE UN IDICE ESPECIFICO?\n\n");
+    printf("1) AL FINAL DE LA LISTA.\n");
+    printf("2) EN UN INDICE ESPECIFICO.\n");
+    printf("3) SALIR.\n\n");
+    getInt(&respuesta, "INGRESE OPCION: ", "ERROR. OPCION INVALIDA! ", 1, 3);
+
+    if(respuesta != 3 && able)
+    {
+        system("cls");
+        fflush(stdin);
+        getName(nombre, "\nINGRESE EL NOMBRE: ", "Error. Debe contener entre 2 y 19 caracteres. ", 2, 19);
+        system("cls");
+        getInt(&dias, "\nINGRESE LOS DIAS: ", "Error. Debe estar entre 1 y 10.000.000", 1, 10000000);
+        system("cls");
+        fflush(stdin);
+        getName(raza, "\nINGRESE LA RAZA: ", "Error. Debe contener entre 2 y 19 caracteres. ", 2, 19);
+        system("cls");
+        fflush(stdin);
+        getName(reservado, "\nINGRESE SI ESTA RESERVADO: ", "Error. Debe contener 2 caracteres. ", 2, 2);
+        system("cls");
+        fflush(stdin);
+        getName(genero, "\nINGRESE EL GENERO: ", "Error. Debe contener 1 caracteres. ", 1, 1);
+
+        if( cachorro_setId(cachorro, -1) && cachorro_setNombre(cachorro, nombre) && cachorro_setDias(cachorro, dias) && cachorro_setRaza(cachorro, raza) && cachorro_setReservado(cachorro, reservado) && cachorro_setGenero(cachorro, genero) )
+        {
+            switch(respuesta)
+            {
+            case 1:
+                if( !ll_add(pArrayListCachorro, cachorro) )
+                {
+                    able = 1;
+                    printf("\nALTA EXITOSA!\n\n");
+                }
+                else
+                {
+                    able = 0;
+                }
+                break;
+
+            case 2:
+                system("cls");
+                getInt(&indice, "\nINGRESE EL INDICE: ", "ERROR! ", 0, ll_len(pArrayListCachorro));
+
+                if( !ll_push(pArrayListCachorro, indice, cachorro) )
+                {
+                    able = 1;
+                    printf("\nALTA EXITOSA!\n\n");
+                }
+                else
+                {
+                    able = 0;
+                }
+                break;
+            }
+        }
+        else
+        {
+            able = 0;
+        }
+
+        if( !able )
+        {
+            printf("\nOCURRIO UN PROBLEMA DURANTE EL ALTA!\n\n");
+        }
+    }
+    else
+    {
+        printf("\nALTA NO REALIZADA!\n\n");
+        able = 0;
+    }
+
 
     return able;
 }
