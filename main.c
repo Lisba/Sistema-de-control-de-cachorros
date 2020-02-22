@@ -56,6 +56,28 @@ int main()
         case 3:
             if( !ll_isEmpty(listaCachorros) )
             {
+                controller_editCachorro(listaCachorros);
+            }
+            else
+            {
+                printf("\nPRIMERO DEBE CARGAR LOS DATOS DESDE EL ARCHIVO!\n\n");
+            }
+            system("pause");
+            break;
+        case 4:
+             if( !ll_isEmpty(listaCachorros) )
+            {
+                controller_removeCachorro(listaCachorros);
+            }
+            else
+            {
+                printf("\nPRIMERO DEBE CARGAR LOS DATOS DESDE EL ARCHIVO!\n\n");
+            }
+            system("pause");
+            break;
+        case 5:
+            if( !ll_isEmpty(listaCachorros) )
+            {
                 controller_ListCachorros(listaCachorros);
             }
             else
@@ -64,7 +86,7 @@ int main()
             }
             system("pause");
             break;
-        case 4:
+        case 6:
             if( !ll_isEmpty(listaCachorros) )
             {
                 listaCachorrosMenores45Dias = ll_filter(listaCachorros, filtrarMenores45);
@@ -88,7 +110,7 @@ int main()
             }
             system("pause");
             break;
-        case 5:
+        case 7:
             if( !ll_isEmpty(listaCachorros) )
             {
                 listaMachos = ll_filter(listaCachorros, filtrarMachos);
@@ -112,7 +134,7 @@ int main()
             }
             system("pause");
             break;
-        case 6:
+        case 8:
             if( !ll_isEmpty(listaCachorros) )
             {
                 ListaCallejeros = ll_filter(listaCachorros, filtrarCallejeros);
@@ -136,7 +158,7 @@ int main()
             }
             system("pause");
             break;
-        case 7:
+        case 9:
             if( !ll_isEmpty(listaCachorros) )
             {
                 getInt(&sortOption, "ASCENDENTE (1) O DESCENDENTE (0)?: ", "ERROR! ", 0, 1);
@@ -157,7 +179,11 @@ int main()
             }
             system("pause");
             break;
-        case 8:
+        case 10:
+            printf("\nInformes\n");
+            system("pause");
+            break;
+        case 11:
             if ( !ll_isEmpty(listaCachorros) )
                 {
                     if( controller_saveAsText("cachorros1.csv", listaCachorros) )
@@ -175,7 +201,7 @@ int main()
                 }
                 system("pause");
             break;
-        case 9:
+        case 12:
             getChar(&respuesta, "\nSEGURO QUE DESEA SALIR? (s/n): ", "\nOPCION INVALIDA! \n", 'n', 's');
             break;
         default:

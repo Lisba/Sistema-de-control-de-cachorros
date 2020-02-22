@@ -60,7 +60,7 @@
 1578345956 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\cachorros\cachorros\lisba_libreria.c
 	"Lisba_libreria.h"
 
-1582200780 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\cachorros.c
+1582393465 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\cachorros.c
 	<stdlib.h>
 	<stdio.h>
 	<string.h>
@@ -78,7 +78,7 @@
 	<stdlib.h>
 	<string.h>
 
-1582200913 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\controller.c
+1582395796 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\controller.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -98,7 +98,7 @@
 1578345956 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\lisba_libreria.c
 	"Lisba_libreria.h"
 
-1582200780 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\main.c
+1582395625 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Cachorros.h"
@@ -106,7 +106,7 @@
 	"Lisba_libreria.h"
 	"LinkedList.h"
 
-1575163694 c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\controller.h
+1582395625 c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\controller.h
 
 1575163694 source:c:\users\usuario\documents\sistemas-utn\1er cuatrimestre\practicas\sistema-de-control-de-cachorros\parser.c
 	<stdio.h>
