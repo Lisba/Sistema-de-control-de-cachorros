@@ -16,6 +16,7 @@ typedef struct
 #include "LinkedList.h"
 
 int menu(void);
+int filterMenu(void);
 
 eCachorro* cachorro_new(void);
 eCachorro* cachorro_newParametros(char* idStr, char* nombreStr, char* diasStr, char* razaStr, char* reservadoStr, char* generoStr);

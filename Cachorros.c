@@ -16,14 +16,27 @@ int menu(void)
     printf("3-MODIFICAR CACHORRO.\n");
     printf("4-BAJA CACHORRO.\n");
     printf("5-IMPRIMIR LISTA.\n");
-    printf("6-FILTRAR MENORES DE 45 DIAS.\n");
-    printf("7-FILTRAR MACHOS.\n");
-    printf("8-GENERAR LISTADO DE CALLEJEROS.\n");
-    printf("9-ORDENAR LISTA.\n");
-    printf("10-INFORMES.\n");
-    printf("11-GUARDAR ARCHIVO.\n");
-    printf("12-SALIR.\n\n");
+    printf("6-FILTRAR POR CRITERIO.\n");
+    printf("7-ORDENAR LISTA.\n");
+    printf("8-INFORMES.\n");
+    printf("9-GUARDAR ARCHIVO.\n");
+    printf("10-SALIR.\n\n");
     getInt(&opcion, "INGRESE OPCION: ", "OPCION INVALIDA. ", 1, 12);
+
+    return opcion;
+}
+
+int filterMenu(void)
+{
+    int opcion;
+
+    system("cls");
+    printf("****** FILTRAR CACHORROS *******\n\n");
+    printf("1-SOLO MAYORES A 45 DIAS.\n");
+    printf("2-SOLO HEMBRAS.\n");
+    printf("3-SOLO CALLEJEROS.\n");
+    printf("4-SALIR.\n\n");
+    getInt(&opcion, "INGRESE OPCION: ", "OPCION INVALIDA. ", 1, 4);
 
     return opcion;
 }
