@@ -17,7 +17,7 @@ void cachorroMasJoven(LinkedList* this)
         }
     }
 
-    printf("ID            NOMBRE        DIAS      RAZA        RESERVADO       GENERO\n");
+    printf("ID            NOMBRE        DIAS      RAZA        RESERVADO       GENERO       PESO        VACUNADO\n");
 
     for(int i=0; i<tam; i++)
     {
@@ -43,7 +43,7 @@ void cachorroMasViejo(LinkedList* this)
         }
     }
 
-    printf("ID            NOMBRE        DIAS      RAZA        RESERVADO       GENERO\n");
+    printf("ID            NOMBRE        DIAS      RAZA        RESERVADO       GENERO       PESO        VACUNADO\n");
 
     for(int i=0; i<tam; i++)
     {

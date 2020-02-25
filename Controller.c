@@ -41,6 +41,8 @@ int controller_addCachorro(LinkedList* pArrayListCachorro)
     char raza[20];
     char reservado[3];
     char genero[2];
+    int peso;
+    char vacunado[3];
     eCachorro* cachorro;
     int respuesta;
     int indice;
@@ -74,8 +76,13 @@ int controller_addCachorro(LinkedList* pArrayListCachorro)
         system("cls");
         fflush(stdin);
         getName(genero, "\nINGRESE EL GENERO: ", "Error. Debe contener 1 caracteres. ", 1, 1);
+        system("cls");
+        getInt(&peso, "\nINGRESE LOS DIAS: ", "Error. Debe estar entre 1 y 10.000.", 1, 10000);
+        system("cls");
+        fflush(stdin);
+        getName(vacunado, "\nINGRESE EL GENERO: ", "Error. Debe contener 2 caracteres. ", 2, 2);
 
-        if( cachorro_setId(cachorro, -1) && cachorro_setNombre(cachorro, nombre) && cachorro_setDias(cachorro, dias) && cachorro_setRaza(cachorro, raza) && cachorro_setReservado(cachorro, reservado) && cachorro_setGenero(cachorro, genero) )
+        if( cachorro_setId(cachorro, -1) && cachorro_setNombre(cachorro, nombre) && cachorro_setDias(cachorro, dias) && cachorro_setRaza(cachorro, raza) && cachorro_setReservado(cachorro, reservado) && cachorro_setGenero(cachorro, genero) && cachorro_setPeso(cachorro, peso) && cachorro_setVacunado(cachorro, vacunado) )
         {
             switch(respuesta)
             {
@@ -148,7 +155,7 @@ int controller_editCachorro(LinkedList* pArrayListCachorro)
         {
             flag = 1;
             printf("\n");
-            printf("ID            NOMBRE        DIAS      RAZA        RESERVADO       GENERO\n");
+            printf("ID            NOMBRE        DIAS      RAZA        RESERVADO       GENERO       PESO        VACUNADO\n");
             printCachorro((eCachorro*) ll_get(pArrayListCachorro, i));
             printf("\n");
 
@@ -157,9 +164,11 @@ int controller_editCachorro(LinkedList* pArrayListCachorro)
             printf("3) MODIFCAR RAZA\n");
             printf("4) MODIFCAR RESERVA\n");
             printf("5) MODIFCAR GENERO\n");
-            printf("6) SALIR\n\n");
+            printf("6) MODIFCAR PESO\n");
+            printf("7) MODIFCAR VACUNADO\n");
+            printf("8) SALIR\n\n");
 
-            getInt(&datoAModificar, "SELECCIONE UNA OPCION: ", "ERROR. DEBE INGRESAR ENTRE 1 Y 6 ", 1, 6);
+            getInt(&datoAModificar, "SELECCIONE UNA OPCION: ", "ERROR. DEBE INGRESAR ENTRE 1 Y 8 ", 1, 8);
 
             switch(datoAModificar)
             {
@@ -204,6 +213,22 @@ int controller_editCachorro(LinkedList* pArrayListCachorro)
                 }
                 break;
             case 6:
+                getInt(&intAux, "\nINGRESE EL PESO: ", "Error. Debe estar entre 1 y 10.000. ", 1, 10000);
+                if( cachorro_setPeso( (eCachorro*) ll_get(pArrayListCachorro, i), intAux) )
+                {
+                    able = 1;
+                    printf("\nMODIFICACION REALIZADA CON EXITO!\n");
+                }
+                break;
+            case 7:
+                getName(stringAux, "\nINGRESE EL ESTADO DE VACUNADO: ", "Error. Debe contener 2 caracteres. ", 2, 2);
+                if( cachorro_setVacunado( (eCachorro*) ll_get(pArrayListCachorro, i), stringAux) )
+                {
+                    able = 1;
+                    printf("\nMODIFICACION REALIZADA CON EXITO!\n");
+                }
+                break;
+            case 8:
                 printf("\nSE HA CANCELADO LA MODIFICACION!\n");
                 break;
             default:
@@ -238,7 +263,7 @@ int controller_removeCachorro(LinkedList* pArrayListCachorro)
         {
             if( idToSearch == ( (eCachorro*) ll_get(pArrayListCachorro, i) )->id )
             {
-                printf("ID            NOMBRE        DIAS      RAZA        RESERVADO       GENERO\n");
+                printf("ID            NOMBRE        DIAS      RAZA        RESERVADO       GENERO       PESO        VACUNADO\n");
                 printCachorro( (eCachorro*) ll_get(pArrayListCachorro, i) );
 
                 printf("\nDESEA ELIMINAR ESTE CACHORRO? (s/n): ");

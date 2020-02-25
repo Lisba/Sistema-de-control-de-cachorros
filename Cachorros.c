@@ -355,7 +355,7 @@ int printCachorros(LinkedList* this)
     {
         tam = ll_len(this);
         system("cls");
-        printf("ID            NOMBRE        DIAS      RAZA        RESERVADO       GENERO       PESO      VACUNADO\n");
+        printf("ID            NOMBRE        DIAS      RAZA        RESERVADO       GENERO       PESO        VACUNADO\n");
 
         for(int i=0; i<tam; i++)
         {
