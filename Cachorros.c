@@ -34,9 +34,10 @@ int filterMenu(void)
     printf("****** FILTRAR CACHORROS *******\n\n");
     printf("1-SOLO MAYORES A 45 DIAS.\n");
     printf("2-SOLO HEMBRAS.\n");
-    printf("3-SOLO CALLEJEROS.\n");
-    printf("4-SALIR.\n\n");
-    getInt(&opcion, "INGRESE OPCION: ", "OPCION INVALIDA. ", 1, 4);
+    printf("3-SOLO MACHOS.\n");
+    printf("4-SOLO CALLEJEROS.\n");
+    printf("5-SALIR.\n\n");
+    getInt(&opcion, "INGRESE OPCION: ", "OPCION INVALIDA. ", 1, 5);
 
     return opcion;
 }
@@ -371,6 +372,27 @@ int filtrarMachos(void* pElement)
         eCachorro* pElementCasted = (eCachorro*) pElement;
 
         if(strcmp(pElementCasted->genero, "H")==0)
+        {
+            value = 1;
+        }
+        else
+        {
+            value = 0;
+        }
+    }
+
+    return value;
+}
+
+int filtrarHembras(void* pElement)
+{
+    int value = -1;
+
+    if(pElement != NULL)
+    {
+        eCachorro* pElementCasted = (eCachorro*) pElement;
+
+        if(strcmp(pElementCasted->genero, "M")==0)
         {
             value = 1;
         }

@@ -10,6 +10,7 @@ int main()
 {
     LinkedList* listaCachorros = NULL;
     LinkedList* listaCachorrosMayores45Dias = NULL;
+    LinkedList* listaHembras = NULL;
     LinkedList* listaMachos = NULL;
     LinkedList* ListaCallejeros = NULL;
     char respuestaSalirPrograma = 'n';
@@ -121,9 +122,9 @@ int main()
                             }
                             break;
                         case 2:
-                            listaMachos = ll_filter(listaCachorros, filtrarMachos);
+                            listaHembras = ll_filter(listaCachorros, filtrarMachos);
 
-                            controller_ListCachorros(listaMachos);
+                            controller_ListCachorros(listaHembras);
 
                             getChar(&respuestaGeneraArchivoFiltros, "\nDESEA GENERAR UN ARCHIVO DE ESTA LISTA? (s/n): ", "ERROR, INGRESE SOLO 's' O 'n'. ", 'n', 's');
 
@@ -131,7 +132,7 @@ int main()
                             {
                                 getString(nombreArchSoloHembras, "\nINGRESE EL NOMBRE DEL ARCHIVO (CON EXTENSION): ", "ERROR! MAXIMO 30 CARACTERES! ", 1, 30);
 
-                                if( controller_saveAsText(nombreArchSoloHembras, listaMachos) )
+                                if( controller_saveAsText(nombreArchSoloHembras, listaHembras) )
                                    {
                                         printf("\nARCHIVO DE CACHORROS HEMBRAS GUARDADO!\n\n");
                                    }
@@ -143,6 +144,28 @@ int main()
                             }
                             break;
                         case 3:
+                            listaMachos = ll_filter(listaCachorros, filtrarHembras);
+
+                            controller_ListCachorros(listaMachos);
+
+                            getChar(&respuestaGeneraArchivoFiltros, "\nDESEA GENERAR UN ARCHIVO DE ESTA LISTA? (s/n): ", "ERROR, INGRESE SOLO 's' O 'n'. ", 'n', 's');
+
+                            if(respuestaGeneraArchivoFiltros == 's')
+                            {
+                                getString(nombreArchSoloHembras, "\nINGRESE EL NOMBRE DEL ARCHIVO (CON EXTENSION): ", "ERROR! MAXIMO 30 CARACTERES! ", 1, 30);
+
+                                if( controller_saveAsText(nombreArchSoloHembras, listaMachos) )
+                                   {
+                                        printf("\nARCHIVO DE CACHORROS MACHOS GUARDADO!\n\n");
+                                   }
+                                else
+                                {
+                                    printf("\nNO SE PUDO GUARDAR EL ARCHIVO DE CACHORROS HEMBRAS!\n\n");
+                                }
+                                system("pause");
+                            }
+                            break;
+                        case 4:
                             ListaCallejeros = ll_filter(listaCachorros, filtrarCallejeros);
 
                             controller_ListCachorros(ListaCallejeros);
@@ -164,7 +187,7 @@ int main()
                                 system("pause");
                             }
                             break;
-                        case 4:
+                        case 5:
                             getChar(&respuestaSalirMenuFiltro, "\nSEGURO QUE DESEA SALIR? (s/n): ", "\nOPCION INVALIDA! \n", 'n', 's');
                             break;
                         default:
