@@ -1,4 +1,4 @@
-ID_Cachorro,Nombre,Dias,Raza,Reservado,Genero
+id,nombre,dias,raza,reservado,genero
 1,Colmillo,91,Bulldog,NO,H
 2,Spunky,87,Collie,NO,H
 3,Pluto,47,Salchicha,NO,H

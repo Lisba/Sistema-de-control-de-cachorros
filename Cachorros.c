@@ -41,6 +41,33 @@ int filterMenu(void)
     return opcion;
 }
 
+int informesMenu(void)
+{
+    int opcion;
+
+    system("cls");
+    printf("****** INFORMES CACHORROS *******\n\n");
+    printf("1-CACHORRO MAS JOVEN.\n");
+    printf("2-CACHORRO MAS VIEJO.\n");
+    printf("3-SALIR.\n\n");
+    getInt(&opcion, "INGRESE OPCION: ", "OPCION INVALIDA. ", 1, 3);
+
+    return opcion;
+}
+
+int guardarArchivoMenu(void)
+{
+    int opcion;
+
+    system("cls");
+    printf("****** GUARDAR ARCHIVO CACHORROS *******\n\n");
+    printf("1-SOBREESCRIBIR EL ARCHIVO ORIGINAL.\n");
+    printf("2-GENERAR UN NUEVO ARCIVHO.\n");
+    getInt(&opcion, "\nINGRESE OPCION: ", "OPCION INVALIDA. ", 1, 2);
+
+    return opcion;
+}
+
 eCachorro* cachorro_new(void)
 {
     eCachorro* this = (eCachorro*) malloc(sizeof(eCachorro));
@@ -273,7 +300,7 @@ int printCachorros(LinkedList* this)
     {
         tam = ll_len(this);
         system("cls");
-        printf("ID            NOMBRE      DIAS       RAZA        RESERVADO       GENERO\n");
+        printf("ID            NOMBRE        DIAS      RAZA        RESERVADO       GENERO\n");
 
         for(int i=0; i<tam; i++)
         {

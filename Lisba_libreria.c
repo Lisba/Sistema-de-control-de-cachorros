@@ -266,7 +266,7 @@ int getString(char* input, char message[], char eMessage[], int lowLimit, int hi
     {
         printf("%s", message);
         fflush(stdin);
-        gets(aux);
+        scanf("%s", aux);
 
         if( (strlen(aux) < (lowLimit)) || (strlen(aux) > (highLimit)) )
         {

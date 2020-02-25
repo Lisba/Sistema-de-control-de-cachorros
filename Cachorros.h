@@ -17,6 +17,8 @@ typedef struct
 
 int menu(void);
 int filterMenu(void);
+int informesMenu(void);
+int guardarArchivoMenu(void);
 
 eCachorro* cachorro_new(void);
 eCachorro* cachorro_newParametros(char* idStr, char* nombreStr, char* diasStr, char* razaStr, char* reservadoStr, char* generoStr);

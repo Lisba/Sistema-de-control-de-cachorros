@@ -138,9 +138,9 @@ int controller_editCachorro(LinkedList* pArrayListCachorro)
     int tam = ll_len(pArrayListCachorro);
 
     system("cls");
-    printf("**************MODIFICAR EMPLEADO****************\n\n");
+    printf("**************MODIFICAR CACHORRO****************\n\n");
 
-    getInt(&idToModify, "INGRESE EL ID DEL EMPLEADO A MODIFICAR: ", "ERROR. DEBE INGRESAR ENTRE 1 Y 2000. ", 1, 2000);
+    getInt(&idToModify, "INGRESE EL ID DEL CACHORRO A MODIFICAR: ", "ERROR. DEBE INGRESAR ENTRE 1 Y 2000. ", 1, 2000);
 
     for(int i=0; i<tam; i++)
     {
@@ -148,7 +148,7 @@ int controller_editCachorro(LinkedList* pArrayListCachorro)
         {
             flag = 1;
             printf("\n");
-            printf("ID            NOMBRE      DIAS       RAZA        RESERVADO       GENERO\n");
+            printf("ID            NOMBRE        DIAS      RAZA        RESERVADO       GENERO\n");
             printCachorro((eCachorro*) ll_get(pArrayListCachorro, i));
             printf("\n");
 
@@ -214,7 +214,7 @@ int controller_editCachorro(LinkedList* pArrayListCachorro)
 
     if( !flag )
     {
-        printf("\nNO SE ENCONTRO NINGUN CLIENTE CON ESE CODIGO!\n");
+        printf("\nNO SE ENCONTRO NINGUN CACHORRO CON ESE PARAMETRO!\n");
     }
 
     printf("\n");
@@ -238,7 +238,7 @@ int controller_removeCachorro(LinkedList* pArrayListCachorro)
         {
             if( idToSearch == ( (eCachorro*) ll_get(pArrayListCachorro, i) )->id )
             {
-                printf("ID            NOMBRE      DIAS       RAZA        RESERVADO       GENERO\n");
+                printf("ID            NOMBRE        DIAS      RAZA        RESERVADO       GENERO\n");
                 printCachorro( (eCachorro*) ll_get(pArrayListCachorro, i) );
 
                 printf("\nDESEA ELIMINAR ESTE CACHORRO? (s/n): ");
@@ -275,7 +275,7 @@ int controller_removeCachorro(LinkedList* pArrayListCachorro)
 
         if(flag == 0)
         {
-            printf("\nNO SE ENCONTRO CACHORRO CON ESE ID!\n\n");
+            printf("\nNO SE ENCONTRO CACHORRO CON ESE PARAMETRO!\n\n");
         }
     }
 

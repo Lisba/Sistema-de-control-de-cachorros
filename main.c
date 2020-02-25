@@ -4,6 +4,7 @@
 #include "Controller.h"
 #include "Lisba_libreria.h"
 #include "LinkedList.h"
+#include "informes.h"
 
 int main()
 {
@@ -11,14 +12,16 @@ int main()
     LinkedList* listaCachorrosMayores45Dias = NULL;
     LinkedList* listaMachos = NULL;
     LinkedList* ListaCallejeros = NULL;
-    char respuesta = 'n';
-    char NombreArchivo[31];
+    char respuestaSalirPrograma = 'n';
+    char nombreArchivo[31];
     int sortOption;
-    char respuestaSalirMenuFiltro;
-    char respuestaFiltro;
+    char respuestaSalirMenuFiltro = 'n';
+    char respuestaGeneraArchivoFiltros = 'n';
+    char respuestaSalirMenuInformes = 'n';
     char nombreArchCachorrMayor45Dias[31];
     char nombreArchSoloHembras[31];
     char nombreArchSoloCallejeros[31];
+    char newNombreArchivo[31];
 
     do
     {
@@ -28,8 +31,8 @@ int main()
             listaCachorros = ll_newLinkedList();
             if( listaCachorros != NULL )
             {
-                getString(NombreArchivo, "\nINGRESE EL NOMBRE DEL ARCHIVO A ABRIR (CON EXTENSION): ", "ERROR! MAXIMO 30 CARACTERES! ", 1, 30);
-                if( controller_loadFromText(NombreArchivo, listaCachorros) )
+                getString(nombreArchivo, "\nINGRESE EL NOMBRE DEL ARCHIVO A ABRIR (CON EXTENSION): ", "ERROR! MAXIMO 30 CARACTERES! ", 1, 30);
+                if( controller_loadFromText(nombreArchivo, listaCachorros) )
                 {
                     printf("\nDATOS CARGADOS CORRECTAMENTE!\n\n");
                 }
@@ -100,9 +103,9 @@ int main()
 
                             controller_ListCachorros(listaCachorrosMayores45Dias);
 
-                            getChar(&respuestaFiltro, "\nDESEA GENERAR UN ARCHIVO DE ESTA LISTA? (s/n): ", "ERROR, INGRESE SOLO 's' O 'n'. ", 'n', 's');
+                            getChar(&respuestaGeneraArchivoFiltros, "\nDESEA GENERAR UN ARCHIVO DE ESTA LISTA? (s/n): ", "ERROR, INGRESE SOLO 's' O 'n'. ", 'n', 's');
 
-                            if(respuestaFiltro == 's')
+                            if(respuestaGeneraArchivoFiltros == 's')
                             {
                                 getString(nombreArchCachorrMayor45Dias, "\nINGRESE EL NOMBRE DEL ARCHIVO (CON EXTENSION): ", "ERROR! MAXIMO 30 CARACTERES! ", 1, 30);
 
@@ -114,6 +117,7 @@ int main()
                                 {
                                     printf("\nNO SE PUDO GUARDAR EL ARCHIVO DE CACHORROS MAYORES A 45 DIAS!\n\n");
                                 }
+                                system("pause");
                             }
                             break;
                         case 2:
@@ -121,9 +125,9 @@ int main()
 
                             controller_ListCachorros(listaMachos);
 
-                            getChar(&respuestaFiltro, "\nDESEA GENERAR UN ARCHIVO DE ESTA LISTA? (s/n): ", "ERROR, INGRESE SOLO 's' O 'n'. ", 'n', 's');
+                            getChar(&respuestaGeneraArchivoFiltros, "\nDESEA GENERAR UN ARCHIVO DE ESTA LISTA? (s/n): ", "ERROR, INGRESE SOLO 's' O 'n'. ", 'n', 's');
 
-                            if(respuestaFiltro == 's')
+                            if(respuestaGeneraArchivoFiltros == 's')
                             {
                                 getString(nombreArchSoloHembras, "\nINGRESE EL NOMBRE DEL ARCHIVO (CON EXTENSION): ", "ERROR! MAXIMO 30 CARACTERES! ", 1, 30);
 
@@ -135,6 +139,7 @@ int main()
                                 {
                                     printf("\nNO SE PUDO GUARDAR EL ARCHIVO DE CACHORROS HEMBRAS!\n\n");
                                 }
+                                system("pause");
                             }
                             break;
                         case 3:
@@ -142,9 +147,9 @@ int main()
 
                             controller_ListCachorros(ListaCallejeros);
 
-                            getChar(&respuestaFiltro, "\nDESEA GENERAR UN ARCHIVO DE ESTA LISTA? (s/n): ", "ERROR, INGRESE SOLO 's' O 'n'. ", 'n', 's');
+                            getChar(&respuestaGeneraArchivoFiltros, "\nDESEA GENERAR UN ARCHIVO DE ESTA LISTA? (s/n): ", "ERROR, INGRESE SOLO 's' O 'n'. ", 'n', 's');
 
-                            if(respuestaFiltro == 's')
+                            if(respuestaGeneraArchivoFiltros == 's')
                             {
                                 getString(nombreArchSoloCallejeros, "\nINGRESE EL NOMBRE DEL ARCHIVO (CON EXTENSION): ", "ERROR! MAXIMO 30 CARACTERES! ", 1, 30);
 
@@ -156,6 +161,7 @@ int main()
                                 {
                                     printf("\nNO SE PUDO GUARDAR EL ARCHIVO DE CACHORROS CALLEJEROS!\n\n");
                                 }
+                                system("pause");
                             }
                             break;
                         case 4:
@@ -163,6 +169,7 @@ int main()
                             break;
                         default:
                             printf("\nOPCION INVALIDA!!!\n\n");
+                            system("pause");
                             break;
                     }
 
@@ -195,19 +202,64 @@ int main()
             system("pause");
             break;
         case 8:
-            printf("\nInformes\n");
+             if( !ll_isEmpty(listaCachorros) )
+            {
+                do
+                {
+                    switch( informesMenu() )
+                    {
+                        case 1:
+                            cachorroMasJoven(listaCachorros);
+                            system("pause");
+                            break;
+                        case 2:
+                            cachorroMasViejo(listaCachorros);
+                            system("pause");
+                            break;
+                        case 3:
+                            getChar(&respuestaSalirMenuInformes, "\nSEGURO QUE DESEA SALIR? (s/n): ", "\nOPCION INVALIDA! \n", 'n', 's');
+                            break;
+                        default:
+                            printf("\nOPCION INVALIDA!!!\n\n");
+                            break;
+                    }
+
+                }while(respuestaSalirMenuInformes != 's');
+            }
+            else
+            {
+                printf("\nPRIMERO DEBE CARGAR LOS DATOS DESDE EL ARCHIVO!\n\n");
+            }
             system("pause");
             break;
         case 9:
             if ( !ll_isEmpty(listaCachorros) )
                 {
-                    if( controller_saveAsText("cachorros1.csv", listaCachorros) )
+                    switch( guardarArchivoMenu() )
                     {
-                        printf("\nDATOS GUARDADOS EN EL ARCHIVO DE TEXTO EXITOSAMENTE!\n\n");
-                    }
-                    else
-                    {
-                        printf("\nNO SE PUDO GUARDAR LOS DATOS!\n\n");
+                    case 1:
+                        if( controller_saveAsText(nombreArchivo, listaCachorros) )
+                        {
+                            printf("\nDATOS GUARDADOS EN EL ARCHIVO DE TEXTO EXITOSAMENTE!\n\n");
+                        }
+                        else
+                        {
+                            printf("\nNO SE PUDO GUARDAR LOS DATOS!\n\n");
+                        }
+                        break;
+                    case 2:
+                        getString(newNombreArchivo, "\nINGRESE EL NOMBRE DEL NUEVO ARCHIVO: ", "ERROR, DEBE CONTENER ENTRE 1 Y 30 CARACTERES. ", 1, 30);
+                        if( controller_saveAsText(newNombreArchivo, listaCachorros) )
+                        {
+                            printf("\nDATOS GUARDADOS EN EL ARCHIVO DE TEXTO EXITOSAMENTE!\n\n");
+                        }
+                        else
+                        {
+                            printf("\nNO SE PUDO GUARDAR LOS DATOS!\n\n");
+                        }
+                        break;
+                    default:
+                        break;
                     }
                 }
                 else
@@ -217,14 +269,14 @@ int main()
                 system("pause");
             break;
         case 10:
-            getChar(&respuesta, "\nSEGURO QUE DESEA SALIR? (s/n): ", "\nOPCION INVALIDA! \n", 'n', 's');
+            getChar(&respuestaSalirPrograma, "\nSEGURO QUE DESEA SALIR? (s/n): ", "\nOPCION INVALIDA! \n", 'n', 's');
             break;
         default:
             printf("\nOPCION INVALIDA!!!\n\n");
             break;
         }
 
-    }while(respuesta != 's');
+    }while(respuestaSalirPrograma != 's');
 
     return 0;
 }
