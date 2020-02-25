@@ -9,6 +9,8 @@ typedef struct
     char raza[20];
     char reservado[3];
     char genero[2];
+    int peso;
+    char vacunado[3];
 }eCachorro;
 
 #endif // CACHORROS_H
@@ -21,7 +23,7 @@ int informesMenu(void);
 int guardarArchivoMenu(void);
 
 eCachorro* cachorro_new(void);
-eCachorro* cachorro_newParametros(char* idStr, char* nombreStr, char* diasStr, char* razaStr, char* reservadoStr, char* generoStr);
+eCachorro* cachorro_newParametros(char* idStr, char* nombreStr, char* diasStr, char* razaStr, char* reservadoStr, char* generoStr, char* pesoStr, char* vacunadoStr);
 void cachorro_delete(eCachorro* this);
 int cachorro_setId(eCachorro* this, int id);
 int cachorro_getId(eCachorro* this, int* id);
@@ -35,6 +37,10 @@ int cachorro_setReservado(eCachorro* this, char* reservado);
 int cachorro_getReservado(eCachorro* this, char* reservado);
 int cachorro_setGenero(eCachorro* this, char* genero);
 int cachorro_getGenero(eCachorro* this, char* genero);
+int cachorro_setPeso(eCachorro* this, int peso);
+int cachorro_getPeso(eCachorro* this, int* peso);
+int cachorro_setVacunado(eCachorro* this, char* vacunado);
+int cachorro_getVacunado(eCachorro* this, char* vacunado);
 int printCachorro(eCachorro* this);
 int printCachorros(LinkedList* this);
 int validateCachorro(eCachorro* this);

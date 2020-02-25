@@ -303,8 +303,10 @@ int controller_saveAsText(char* path , LinkedList* pArrayListCachorro)
     char nombre[20];
     int dias;
     char raza[20];
-    char reservado[20];
+    char reservado[3];
     char genero[2];
+    int peso;
+    char vacunado[3];
     FILE* f = NULL;
    eCachorro* cachorro;
 
@@ -315,7 +317,7 @@ int controller_saveAsText(char* path , LinkedList* pArrayListCachorro)
 
         if( f != NULL )
         {
-            fprintf(f, "id,nombre,dias,raza,reservado,genero\n");
+            fprintf(f, "id,nombre,dias,raza,reservado,genero,peso,vacunado\n");
             for(int i=0; i<tam; i++)
             {
                 cachorro = (eCachorro*) ll_get(pArrayListCachorro, i);
@@ -326,8 +328,10 @@ int controller_saveAsText(char* path , LinkedList* pArrayListCachorro)
                 cachorro_getRaza(cachorro, raza);
                 cachorro_getReservado(cachorro, reservado);
                 cachorro_getGenero(cachorro, genero);
+                cachorro_getPeso(cachorro, &peso);
+                cachorro_getVacunado(cachorro, vacunado);
 
-                fprintf(f, "%d,%s,%d,%s,%s,%s\n", id, nombre, dias, raza, reservado, genero);
+                fprintf(f, "%d,%s,%d,%s,%s,%s,%d,%s\n", id, nombre, dias, raza, reservado, genero, peso, vacunado);
                 contador++;
             }
 

@@ -81,22 +81,24 @@ eCachorro* cachorro_new(void)
         strcpy(this->raza, " ");
         strcpy(this->reservado, " ");
         strcpy(this->genero, " ");
+        this->peso = 0;
+        strcpy(this->vacunado, " ");
     }
 
     return this;
 }
 
-eCachorro* cachorro_newParametros(char* idStr, char* nombreStr, char* diasStr, char* razaStr, char* reservadoStr, char* generoStr)
+eCachorro* cachorro_newParametros(char* idStr, char* nombreStr, char* diasStr, char* razaStr, char* reservadoStr, char* generoStr, char* pesoStr, char* vacunadoStr)
 {
     eCachorro* this;
 
-        if(idStr != NULL && nombreStr != NULL && diasStr != NULL && razaStr != NULL && reservadoStr != NULL && generoStr != NULL)
+        if(idStr != NULL && nombreStr != NULL && diasStr != NULL && razaStr != NULL && reservadoStr != NULL && generoStr != NULL && pesoStr != NULL && vacunadoStr != NULL)
         {
             this = cachorro_new();
 
             if(this != NULL)
             {
-                if( !cachorro_setId(this, atoi(idStr)) || !cachorro_setNombre(this, nombreStr) || !cachorro_setDias(this, atoi(diasStr)) || !cachorro_setRaza(this, razaStr) || !cachorro_setReservado(this, reservadoStr) || !cachorro_setGenero(this, generoStr) )
+                if( !cachorro_setId(this, atoi(idStr)) || !cachorro_setNombre(this, nombreStr) || !cachorro_setDias(this, atoi(diasStr)) || !cachorro_setRaza(this, razaStr) || !cachorro_setReservado(this, reservadoStr) || !cachorro_setGenero(this, generoStr) || !cachorro_setPeso(this, atoi(pesoStr)) || !cachorro_setVacunado(this, vacunadoStr) )
                 {
                         cachorro_delete(this);
                         this = NULL;
@@ -282,11 +284,63 @@ int cachorro_getGenero(eCachorro* this, char* genero)
     return able;
 }
 
+int cachorro_setPeso(eCachorro* this, int peso)
+{
+    int able = 0;
+
+    if(this != NULL && peso > 0)
+    {
+        this->peso = peso;
+        able = 1;
+    }
+
+    return able;
+}
+
+int cachorro_getPeso(eCachorro* this, int* peso)
+{
+    int able = 0;
+
+    if(this != NULL && peso > 0)
+    {
+        *peso = this->peso;
+        able = 1;
+    }
+
+    return able;
+}
+
+int cachorro_setVacunado(eCachorro* this, char* vacunado)
+{
+    int able = 0;
+
+    if(this != NULL && (vacunado != NULL && strlen(vacunado)>1))
+    {
+        strcpy(this->vacunado, vacunado);
+        able = 1;
+    }
+
+    return able;
+}
+
+int cachorro_getVacunado(eCachorro* this, char* vacunado)
+{
+    int able = 0;
+
+    if(this != NULL && vacunado != NULL)
+    {
+        strcpy(vacunado, this->vacunado);
+        able = 1;
+    }
+
+    return able;
+}
+
 int printCachorro(eCachorro* this)
 {
     int able = 0;
 
-    printf("%d %18s %9d %12s %12s %12s\n", this->id, this->nombre, this->dias, this->raza, this->reservado, this->genero);
+    printf("%d %18s %9d %12s %12s %12s %12d %12s\n", this->id, this->nombre, this->dias, this->raza, this->reservado, this->genero, this->peso, this->vacunado);
     able = 1;
 
     return able;
@@ -301,7 +355,7 @@ int printCachorros(LinkedList* this)
     {
         tam = ll_len(this);
         system("cls");
-        printf("ID            NOMBRE        DIAS      RAZA        RESERVADO       GENERO\n");
+        printf("ID            NOMBRE        DIAS      RAZA        RESERVADO       GENERO       PESO      VACUNADO\n");
 
         for(int i=0; i<tam; i++)
         {
@@ -322,6 +376,8 @@ int validateCachorro(eCachorro* this)
     char raza[20];
     char reservado[3];
     char genero[2];
+    int peso;
+    char vacunado[3];
 
     if(this != NULL)
     {
@@ -331,9 +387,10 @@ int validateCachorro(eCachorro* this)
         cachorro_getRaza(this, raza);
         cachorro_getReservado(this, reservado);
         cachorro_getGenero(this, genero);
+        cachorro_getPeso(this, &peso);
+        cachorro_getVacunado(this, vacunado);
 
-
-        if(id > 0 &&  strlen(nombre) > 0 && dias > 0 && strlen(raza) > 0 && strlen(reservado) > 0 && strlen(genero) > 0)
+        if(id > 0 &&  strlen(nombre) > 0 && dias > 0 && strlen(raza) > 0 && strlen(reservado) > 0 && strlen(genero) > 0 && peso > 0 && strlen(vacunado) > 0)
         {
             isUsed = 1;
         }
