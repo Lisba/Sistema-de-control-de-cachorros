@@ -1,0 +1,16 @@
+id,nombre,dias,raza,reservado,genero,peso,vacunado
+10,Firulais,95,Mestizo,NO,H,2000,SI
+14,Einstein,2,Mestizo,NO,H,2000,SI
+17,Pluto,10,Mestizo,NO,H,2000,NO
+29,Peggy,52,Mestizo,NO,M,2000,SI
+37,Scooby,10,Mestizo,NO,H,2000,SI
+43,Buster,11,Mestizo,NO,H,2000,SI
+49,Colmillo,2,Mestizo,NO,H,2000,SI
+52,Einstein,96,Mestizo,NO,H,2000,SI
+53,Einstein,72,Mestizo,SI,H,2000,SI
+61,Firulais,8,Mestizo,SI,H,2000,SI
+71,Spunky,61,Mestizo,SI,H,2000,SI
+80,Charlie,5,Mestizo,NO,H,2000,SI
+87,Colmillo,13,Mestizo,SI,H,2000,SI
+91,Einstein,8,Mestizo,SI,H,2103,SI
+99,Peggy,98,Mestizo,NO,M,2000,SI

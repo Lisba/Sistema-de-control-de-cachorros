@@ -12,7 +12,7 @@ int main()
     LinkedList* listaCachorrosMayores45Dias = NULL;
     LinkedList* listaHembras = NULL;
     LinkedList* listaMachos = NULL;
-    LinkedList* ListaCallejeros = NULL;
+    LinkedList* ListaMestizos = NULL;
     char respuestaSalirPrograma = 'n';
     char nombreArchivo[31];
     int sortOption;
@@ -166,9 +166,9 @@ int main()
                             }
                             break;
                         case 4:
-                            ListaCallejeros = ll_filter(listaCachorros, filtrarCallejeros);
+                            ListaMestizos = ll_filter(listaCachorros, filtrarCallejeros);
 
-                            controller_ListCachorros(ListaCallejeros);
+                            controller_ListCachorros(ListaMestizos);
 
                             getChar(&respuestaGeneraArchivoFiltros, "\nDESEA GENERAR UN ARCHIVO DE ESTA LISTA? (s/n): ", "ERROR, INGRESE SOLO 's' O 'n'. ", 'n', 's');
 
@@ -176,13 +176,13 @@ int main()
                             {
                                 getString(nombreArchSoloCallejeros, "\nINGRESE EL NOMBRE DEL ARCHIVO (CON EXTENSION): ", "ERROR! MAXIMO 30 CARACTERES! ", 1, 30);
 
-                                if( controller_saveAsText(nombreArchSoloCallejeros, ListaCallejeros) )
+                                if( controller_saveAsText(nombreArchSoloCallejeros, ListaMestizos) )
                                    {
-                                        printf("\nARCHIVO DE CACHORROS CALLEJEROS GUARDADO!\n\n");
+                                        printf("\nARCHIVO DE CACHORROS MESTIZOS GUARDADO!\n\n");
                                    }
                                 else
                                 {
-                                    printf("\nNO SE PUDO GUARDAR EL ARCHIVO DE CACHORROS CALLEJEROS!\n\n");
+                                    printf("\nNO SE PUDO GUARDAR EL ARCHIVO DE CACHORROS MESTIZOS!\n\n");
                                 }
                                 system("pause");
                             }

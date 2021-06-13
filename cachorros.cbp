@@ -49,6 +49,10 @@
 		<Unit filename="Lisba_libreria.h" />
 		<Unit filename="cachorros.cbp" />
 		<Unit filename="cachorros.csv" />
+		<Unit filename="informes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="informes.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
